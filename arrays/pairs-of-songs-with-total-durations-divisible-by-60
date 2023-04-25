@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int numPairsDivisibleBy60(vector<int>& time) {
+        map<int,int> m;long long count=0;
+        for(int i=0;i<time.size();i++){
+            time[i]=time[i]%60;
+        }
+        for(int i=0;i<time.size();i++){
+           m[time[i]]++;
+
+        }
+        for(auto i:m){
+            int k=60-i.first;
+            if(k==60 || k==i.first)
+               {
+                    long long pairs = i.second;
+                count+=pairs*(pairs-1)/2;
+               }
+                else{
+                count+=i.second*m[k];
+                m.erase(k);
+            
+
+        }
+        }
+
+
+        return count;
+    }
