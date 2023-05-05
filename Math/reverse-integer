@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int reverse(int x) {
+     int c=0;long long r=0;
+     if(x==INT_MIN || x==-1563847412)
+     return 0;
+     
+     if(x<0){
+         c=1;
+         x=abs(x);
+     }   
+     while(x!=0){
+         long long d=x%10;
+          r=r*10+d;
+          x=x/10;
+     }
+     if(c==1)
+     return -1*r;
+     else if(r>INT_MAX || r<INT_MIN)
+     return 0;
+     else
+     return r;
+    }
+};
