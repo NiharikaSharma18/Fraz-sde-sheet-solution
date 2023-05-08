@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string addBinary(string a, string b) {
+        int i = a.size() - 1;
+        int j = b.size() - 1;
+        string s;int sum=0;
+         int carry=0;
+       while(i>=0 || j>=0){
+           int da=i<0?0:a[i]-'0';
+            int db=j<0?0:b[j]-'0';
+             sum=carry+da+db;
+          s+=to_string(sum%2);
+          carry=sum/2;
+          i--;
+          j--;
+
+
+       }
+       if(carry>0)
+       s+=to_string(carry);
+       reverse(s.begin(),s.end());
+       return s;
+    
