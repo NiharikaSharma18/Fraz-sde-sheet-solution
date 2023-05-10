@@ -1,0 +1,25 @@
+class Solution {
+public:
+    bool isHappy(int n) {
+        int sum;
+        unordered_set<int> already;
+    
+        while(n!=1){
+            sum=0;
+            while(n!=0){
+
+                int d=n%10;
+                 sum+=d*d;
+                 n=n/10;
+            }
+            if(already.count(sum)!=0)
+            return false;
+            already.insert(sum);
+            n=sum;
+          
+       
+        }
+        return true;
+
+    }
+};
