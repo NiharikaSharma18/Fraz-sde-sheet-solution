@@ -1,0 +1,24 @@
+class Solution {
+public:
+    vector<int> partitionLabels(string s) {
+        map<char,int> m;
+        string v;
+        int maxi=0;
+       vector<int> ans;
+  int prev=-1;
+  for(int i=0;i<s.size();i++){
+m[s[i]]=i;
+  }
+   for(int i=0;i<s.size();i++){
+  v+= s[i];
+maxi=max(maxi,m[s[i]]);
+if(maxi==i)
+{
+    int k=v.size();
+    ans.push_back(k);
+    v="";
+}
+  }  
+return ans;
+    }
+};
